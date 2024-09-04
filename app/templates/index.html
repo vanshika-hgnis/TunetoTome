@@ -5,65 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="app/static/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom-styles.css') }}">
 </head>
 
 <body>
+
     <div class="container bg-white mx-auto min-h-screen flex flex-col justify-center items-center relative">
-        <header class="absolute inset-x-0 top-0 z-50">
-            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:flex-1">
-                    <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only moderustic-800 text-black">TunetoTome</span>
-                        <h1 class="logo text-black">TunetoTome</h1>
+        <!-- Background Gradient -->
+        <div
+            class="absolute inset-0 z-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]">
+        </div>
+
+        <!-- Header and Navbar -->
+        <header class="z-10 w-full">
+            <nav class="flex items-center justify-between p-6">
+                <!-- Logo on the left -->
+                <div class="logo flex items-center space-x-2 ">
+                    <a href="#" class="flex items-center">
+                        <img class="object-contain h-20 w-20" src="{{ url_for('static', filename='book-logo.png') }}"
+                            alt="logo" />
+                        <p
+                            class="bg-gradient-to-r from-[#434343] to-[#000000] bg-clip-text text-transparent font-semibold text-2xl ml-1 poppins-medium ">
+                            TunetoTome</p>
+                    </a>
+                </div>
+                <!-- Links on the right -->
+                <div class="flex space-x-8">
+                    <a href="About" class="poppins-regular text-lg font-medium text-gray-800">
+                        About
+                    </a>
+                    <a href="Contact" class="poppins-regular text-lg font-medium text-gray-800">
+                        Contact
                     </a>
                 </div>
             </nav>
         </header>
 
-        <div class="relative isolate px-6 pt-14 lg:px-8 w-full text-center">
-
-            <!-- Background1  -->
-            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-                aria-hidden="true">
-                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+        <!-- Main Content -->
+        <main class="z-10   w-full flex-grow flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-6xl font-bold text-gray-900 poppins-semibold">Gets Novels to match the tune.</h1>
+                <div class="mt-8 text-lg text-gray-600">
+                    <label class="relative block">
+                        <span class="sr-only"></span>
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"></svg>
+                        </span>
+                        <input
+                            class=" placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-950 focus:ring-sky-950 focus:ring-1 sm:text-black"
+                            placeholder="Song Title(ex.Devil is the Lie)" type="text" name="search" />
+                    </label>
                 </div>
             </div>
-            <!-- Background1  -->
-
-            <section class="mr-2 ml-2">
-                <div class="row">
-                    <div class="col-12 w-full">
-                        <h1 class="h1 text-3xl font-semibold text-black">Search for songs</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="mt-6 flex max-w-md gap-x-4 mx-auto">
-                            <label for="song-title" class="sr-only">Song Title</label>
-                            <input id="song-title" name="songtitle" type="text" autocomplete="SOng" required
-                                class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                placeholder="Enter song title">
-                            <button type="Search"
-                                class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Search</button>
-                        </div>
-
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- Background Colors 2  -->
-            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-                aria-hidden="true">
-                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-                </div>
-            </div>
-            <!-- Background Colors 2 -->
-
-        </div>
+        </main>
     </div>
 
 </body>

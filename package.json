@@ -1,0 +1,18 @@
+{
+  "name": "tunetotome",
+  "version": "1.0.0",
+  "description": "This project combines several modern technologies and techniques to create an engaging and useful application that bridges the gap between music and literature. It leverages natural language processing to derive meaningful insights from textual data, providing a novel way to recommend books based on the sentiment and themes present in song lyrics.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.10",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
+  }
+}

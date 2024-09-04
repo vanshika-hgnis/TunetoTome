@@ -11,7 +11,11 @@ TunetoTome
    |    | -- __init__.py                   # Bundle all above sections and expose the Flask APP 
    |    |
    |    |-- static/
-   |    |    |-- <css, JS, images>         # CSS files, Javascripts files
+   |    |    |-- css/
+   |    |    |    |-- input.css            # Tailwind input file
+   |    |    |    |-- output.css           # Processed CSS file
+   |    |    |-- main.js # Existing JS, images, and other assets
+   |    |    |-- logo.png
    |    |
    |    |-- templates/
    |    |    |
@@ -58,3 +62,8 @@ templates: pages and components to be used
 
 https://github.com/app-generator/flask-illustrations-iradesign/tree/master/app
 https://github.com/app-generator/tutorial-flask/blob/main/flask-project-structure.md
+
+
+
+to rebuild  tailwindcss file needs to be compiled continously
+npx tailwindcss -i ./app/static/css/input.css -o ./app/static/css/output.css --watch
