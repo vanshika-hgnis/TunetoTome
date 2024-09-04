@@ -67,3 +67,4 @@ https://github.com/app-generator/tutorial-flask/blob/main/flask-project-structur
 
 to rebuild  tailwindcss file needs to be compiled continously
 npx tailwindcss -i ./app/static/css/input.css -o ./app/static/css/output.css --watch
+https://genius.com/api-clients

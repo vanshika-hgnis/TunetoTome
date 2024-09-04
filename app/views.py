@@ -1,6 +1,10 @@
 # app/views.py
 
-from flask import Blueprint, render_template
+import requests
+from flask import Blueprint, render_template,jsonify
+from requests import request
+from geniusapi import get_image_html, search_song_and_recommend
+
 
 # Create a Blueprint
 main = Blueprint('main', __name__)
@@ -14,6 +18,28 @@ def index():
 def not_found_error(error):
     return render_template('page-404.html'), 404
 
-@main.app_errorhandler(500)
-def internal_error(error):
-    return render_template('page-500.html'), 500
+
+
+client_access_token = "kuxm_2_TG5XXwjFrFF5zK8PGx9RxIlSXYRInuMFB7GAmRLFhlOvl1kfzuRMgAOp2"
+
+# Route to handle search requests
+@main.route('/search', methods=['POST'])
+def search():
+    search_term = request.form.get('search_term')
+    client_access_token = "kuxm_2_TG5XXwjFrFF5zK8PGx9RxIlSXYRInuMFB7GAmRLFhlOvl1kfzuRMgAOp2"
+    recommendations = search_song_and_recommend(search_term, client_access_token)
+    
+    # Format response
+    response = []
+    for rec in recommendations:
+        response.append({
+            'original_song': rec['original_song'],
+            'similar_songs': rec['similar_songs']
+        })
+    
+    return jsonify(response)
+
+        
+    
+
+    
