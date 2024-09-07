@@ -55,21 +55,30 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                             <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"></svg>
                         </span>
-                        <input id="song-input"
-                            class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-950 focus:ring-sky-950 focus:ring-1 sm:text-black"
-                            placeholder="Song Title (e.g., Devil is the Lie)" type="text" name="search"
-                            autocomplete="off" />
+
+                        <div class="flex items-center space-x-4">
+                            <input id="song-input"
+                                class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-950 focus:ring-sky-950 focus:ring-1 sm:text-black"
+                                placeholder="Song Title (e.g., Devil is the Lie)" type="text" name="search"
+                                autocomplete="off" />
+                            <button class="btn bg-gradient-to-r from-[#000428] to-[#004e92] 
+                                text-white  poppins-semibold btn-lg text-center"
+                                onclick="searchSongs()">Search</button>
+                        </div>
                         <ul id="suggestions"
-                            class="absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-md shadow-lg max-h-60 overflow-y-auto hidden">
+                            class="absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-md shadow-lg max-h-60 overflow-y-auto hidden text-black">
                             <!-- Suggestions will be dynamically added here -->
                         </ul>
                     </label>
                 </div>
-            </div>
 
-            <div id="selected-song" class="mt-5 container mx-auto text-center text-2xl">
+
+            </div>
+            <div id="selected-song" class="">
                 <!-- Selected song details will appear here -->
             </div>
+
+
 
         </main>
     </div>
