@@ -4,6 +4,8 @@ TunetoTome
    |    |
    |    | -- config.py                     # App Configuration
    |    | -- models.py                     # Database Tables 
+   |    | -- geniusapi.py
+   |    | -- azlyrics_scapper.py
    |    | -- forms.py                      # App Forms: login, registration
    |    | -- util.py                       # Helpers to manipulate date, files  
    |    | -- views.py                      # App Routing
@@ -38,8 +40,6 @@ TunetoTome
    |    |    |
    |    |  index.html                      # The default page
    |    |  page-404.html                   # Error 404 page (page not found)
-   |    |  page-500.html                   # Error 500 page (server error)
-   |    |    *.html                        # All other pages provided by the UI Kit
    |
    |-- requirements.txt                    # Application Dependencies
    |-- .env

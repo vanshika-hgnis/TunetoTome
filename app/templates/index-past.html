@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom-styles.css') }}">
+    <script src="{{ url_for('static', filename='js/song-search.js') }}" defer></script>
+</head>
+
+<body>
+
+    <div class="container bg-white mx-auto min-h-screen flex flex-col justify-center items-center relative">
+        <!-- Background Gradient -->
+        <div
+            class="absolute inset-0 z-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]">
+        </div>
+
+        <!-- Header and Navbar -->
+        <header class="z-10 w-full">
+            <nav class="flex items-center justify-between p-6">
+                <!-- Logo on the left -->
+                <div class="logo flex items-center space-x-2 ">
+                    <a href="#" class="flex items-center">
+                        <img class="object-contain h-20 w-20" src="{{ url_for('static', filename='book-logo.png') }}"
+                            alt="logo" />
+                        <p
+                            class="bg-gradient-to-r from-[#434343] to-[#000000] bg-clip-text text-transparent font-semibold text-2xl ml-1 poppins-medium ">
+                            TunetoTome</p>
+                    </a>
+                </div>
+                <!-- Links on the right -->
+                <div class="flex space-x-8">
+                    <a href="About" class="poppins-regular text-lg font-medium text-gray-800">
+                        About
+                    </a>
+                    <a href="Contact" class="poppins-regular text-lg font-medium text-gray-800">
+                        Contact
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="z-10 w-full flex-grow flex flex-col items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-6xl font-bold  bg-gradient-to-r from-[#000428] to-[#004e92] 
+                bg-clip-text text-transparent  poppins-semibold">Gets
+                    Novels to match the tune.</h1>
+                <div class="mt-8 text-lg text-gray-600">
+                    <label class="relative block">
+                        <span class="sr-only"></span>
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"></svg>
+                        </span>
+
+                        <div class="flex items-center space-x-4">
+                            <input id="song-input"
+                                class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-950 focus:ring-sky-950 focus:ring-1 sm:text-black"
+                                placeholder="Song Title (e.g., Devil is the Lie)" type="text" name="search"
+                                autocomplete="off" />
+                            <button class="btn bg-gradient-to-r from-[#000428] to-[#004e92] 
+                                text-white  poppins-semibold btn-lg text-center"
+                                onclick="searchSongs()">Search</button>
+                        </div>
+                        <ul id="suggestions"
+                            class="absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-md shadow-lg max-h-60 overflow-y-auto hidden text-black">
+                            <!-- Suggestions will be dynamically added here -->
+                        </ul>
+                    </label>
+                </div>
+
+
+            </div>
+            <div id="selected-song" class="">
+                <!-- Selected song details will appear here -->
+            </div>
+
+
+
+        </main>
+    </div>
+
+</body>
+
+</html>
