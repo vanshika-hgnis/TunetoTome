@@ -9,6 +9,7 @@ import re
 
 # Create a Blueprint
 main = Blueprint('main', __name__)
+main.secret_key = os.getenv('SECRET_KEY')
 
 @main.route('/')
 def index():
@@ -30,8 +31,8 @@ def fetch_lyrics_route():
 
     song_title = data.get('song_title')
     artist_name = data.get('artist_name')
-
     lyrics = fetch_lyrics(artist_name, song_title)
+    session['lyrics'] = lyrics
     return jsonify({"lyrics": lyrics})
 
 

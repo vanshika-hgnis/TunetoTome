@@ -1593,6 +1593,10 @@ html {
   margin-top: 2rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1619,6 +1623,10 @@ html {
 
 .max-h-60 {
   max-height: 15rem;
+}
+
+.max-h-96 {
+  max-height: 24rem;
 }
 
 .min-h-screen {

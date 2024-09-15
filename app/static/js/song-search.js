@@ -1,5 +1,6 @@
 
 
+
 // function searchSongs() {
 //     const searchTerm = document.getElementById('song-input').value;
 
@@ -30,7 +31,6 @@
 //                     document.getElementById('song-input').value = recommendation.full_title;
 //                     suggestions.classList.add('hidden');
 //                     displaySelectedSong(recommendation);
-//                     // fetchLyrics(recommendation.title, recommendation.artist);
 //                 });
 
 //                 suggestions.appendChild(listItem);
@@ -40,7 +40,6 @@
 //             console.error('Error:', error);
 //         });
 // }
-
 
 // function fetchLyrics(songTitle, artistName) {
 //     fetch('/api/fetch-lyrics', {
@@ -74,12 +73,6 @@
 //         });
 // }
 
-
-
-
-
-
-
 // function displaySelectedSong(recommendation) {
 //     const selectedSongContainer = document.getElementById('selected-song');
 //     selectedSongContainer.classList.remove('hidden');
@@ -93,13 +86,13 @@
 //     document.getElementById('hidden-artist-name').value = recommendation.artist;
 // }
 
-
 // document.getElementById('fetch-lyrics-btn').addEventListener('click', () => {
 //     const songTitle = document.getElementById('hidden-song-title').value;
 //     const artistName = document.getElementById('hidden-artist-name').value;
 //     fetchLyrics(songTitle, artistName);
 // });
-
+// Variable to keep track of the visibility state of the lyrics
+let areLyricsVisible = false;
 
 function searchSongs() {
     const searchTerm = document.getElementById('song-input').value;
@@ -189,5 +182,16 @@ function displaySelectedSong(recommendation) {
 document.getElementById('fetch-lyrics-btn').addEventListener('click', () => {
     const songTitle = document.getElementById('hidden-song-title').value;
     const artistName = document.getElementById('hidden-artist-name').value;
-    fetchLyrics(songTitle, artistName);
+    const lyricsDisplay = document.getElementById('lyrics-display');
+
+    if (!areLyricsVisible) {
+        fetchLyrics(songTitle, artistName);
+        document.getElementById('fetch-lyrics-btn').textContent = 'Hide Lyrics';
+    } else {
+        lyricsDisplay.classList.add('hidden');
+        document.getElementById('fetch-lyrics-btn').textContent = 'Get Lyrics';
+    }
+
+    // Toggle the state
+    areLyricsVisible = !areLyricsVisible;
 });
